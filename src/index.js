@@ -21,7 +21,7 @@ class Box extends React.Component {
 class Grid extends React.Component {
     render() {
         const width = (this.props.cols * 14);
-        var rowsArr = []
+        var rowsArr = [];
 
         var boxClass = "";
         for (var i = 0; i < this.props.rows; i++) {
@@ -129,13 +129,50 @@ class Main extends React.Component {
     }
 
     playButton = () => {
-        clearInterval(this.intervalId)
+        clearInterval(this.intervalId);
         this.intervalId = setInterval(this.play, this.speed);
     }
 
     pauseButton = () => {
         clearInterval(this.intervalId);
     }
+
+    slow = () => {
+        this.speed = 1000;
+        this.playButton();
+    }
+
+    fast = () => {
+        this.speed = 100;
+        this.playButton();
+    }
+
+    clear = () => {
+        var grid = Array(this.rows).fill().map(() =>Array(this.cols).fill(false));
+        this.setState({
+            gridFull: grid,
+            generation: 0
+        });
+    }
+
+    gridSize = (size) => {
+        switch (size) {
+            case "1":
+                this.cols = 20;
+                this.rows = 10;
+            break;
+            case "2":
+                this.cols = 50;
+                this.rows = 30;
+            break;
+            default:
+                this.cols = 70;
+                this.rows = 50;
+        }
+        this.clear();
+    }
+
+
 
     play = () => {
         let g = this.state.gridFull;
