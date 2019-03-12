@@ -9,6 +9,10 @@ React project from freeCodeCamp. This zero player game can be interacted with by
 * Any live cell with more than three live neighbours dies, as if by overpopulation.
 * Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
+## Live Demo
+
+To view, go to https://nifty-lamarr-3cc941.netlify.com/
+
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
